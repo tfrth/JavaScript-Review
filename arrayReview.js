@@ -6,6 +6,9 @@ var last = function() {
 	return threeItems[2];
 }
 
+last(threeItems);
+
+
 
 
 
@@ -96,15 +99,13 @@ longest(sentence);
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
-var cap = function() {
-		myPoem = myPoem.split(' ');
+var cap = function(string) {
+	var allCaps = strin.toUpperCase();
+	return allCaps;
+}
 
-		for (var i = 0; i < myPoem.length; i++) {
-			myPoem
-		}
-
-	};
-
+cap(myPoem);
+		
 
 
 
@@ -116,7 +117,16 @@ var cap = function() {
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
 
-
+var vowelCounter = function (string) {
+	var counter = 0;
+	for (var i = 0; i < string.length; i++) {
+	if (string[i] === 'a' || string[i] === 'e' || string[i] === 'i' || string[i] === 'o' || string[i] === 'u') {
+		counter += 1;
+	 }
+   }
+	return counter;
+};
+		
 
 
 
