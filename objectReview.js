@@ -80,7 +80,8 @@ methodCollection.logHello = function() {
 
 //Now call your alertHello and logHello methods. 
 
-  //Your code here
+methodCollection.logHello();
+methodCollection.alertHello();
 
 
 
@@ -90,6 +91,65 @@ methodCollection.logHello = function() {
 
 //write a function called voweler that accepts a string, and returns an object with the keys being all the vowels in that string, and the values being how many times that particular vowel was in the string.
 //voweler("This is a test") --> {i: 2, a: 1, e: 1};
+
+var voweler = function (str) {
+  var newObj = {};
+  var arr = str.split('');
+   var a = 0; var e = 0; var iNum = 0; var o = 0; var u = 0;
+
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] === 'a') {
+        a++;
+        newObj.a = a;
+    }
+    if (arr[i] === 'e') {
+        e++;
+        newObj.e = e;
+    }
+    if (arr[i] === 'i') {
+        i++;
+        newObj.i = i;
+    }
+    if (arr[i] === 'o') {
+        o++;
+        newObj.o = o;
+    }
+
+    if (arr[i] === 'u') {
+        u++;
+        newObj.u = u;
+    }
+
+
+  }
+
+  // for (var i = 0; i < str.length; i++) {
+  //   if (str[i] === 'a' || str[i] === 'e' || str[i] === 'i' || str[i] === 'o' || str[i] === 'u') {
+  //     newObj.str[i] = "";
+  //   }
+  // }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
