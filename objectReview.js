@@ -92,23 +92,23 @@ methodCollection.alertHello();
 //write a function called voweler that accepts a string, and returns an object with the keys being all the vowels in that string, and the values being how many times that particular vowel was in the string.
 //voweler("This is a test") --> {i: 2, a: 1, e: 1};
 
-var voweler = function (str) {
+var voweler = function (str) {       //str is the parameter representing a sting argument 
   var newObj = {};
-  var arr = str.split('');
-   var a = 0; var e = 0; var iNum = 0; var o = 0; var u = 0;
+  var arr = str.split('');           //creates variable array that takes the string argument and converts it to an array with each letter in string as seperate value [i]
+  var a = 0; var e = 0; var iNum = 0; var o = 0; var u = 0; //creates variables for every vowel. These will be used to add up the number of each letter in arr. 
 
-  for (var i = 0; i < arr.length; i++){
-    if (arr[i] === 'a') {
+  for (var i = 0; i < arr.length; i++){ //begins loop through arr, the array created from the letters in the string passed in as argument. 
+    if (arr[i] === 'a') {               // if the value at the given index is 'a', then the a counter (var a = 0) will be increased by 1 accordingly. Then the counter value will be added to the a key in the newObj.
         a++;
         newObj.a = a;
     }
-    if (arr[i] === 'e') {
+    if (arr[i] === 'e') {         // same thing as 'a'
         e++;
         newObj.e = e;
     }
     if (arr[i] === 'i') {
-        i++;
-        newObj.i = i;
+        iNum++;
+        newObj.i = iNum;
     }
     if (arr[i] === 'o') {
         o++;
@@ -119,15 +119,8 @@ var voweler = function (str) {
         u++;
         newObj.u = u;
     }
-
-
-  }
-
-  // for (var i = 0; i < str.length; i++) {
-  //   if (str[i] === 'a' || str[i] === 'e' || str[i] === 'i' || str[i] === 'o' || str[i] === 'u') {
-  //     newObj.str[i] = "";
-  //   }
-  // }
+  };
+  return newObj;         // return newObj with keys and values!
 }
 
 
