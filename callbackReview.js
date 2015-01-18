@@ -66,7 +66,7 @@ contains('Colt', names, function(result){
 
 var map = function(array, callback) {          // creates map function with parameters of array and callback function
   for (var i = 0; i < array.length; i++) {     // loops through the array passed, in this case "numbers"
-   array[i] = callback(array[i]);              // takes value at index in the array, and set it equal to the callback 
+   array[i] = callback(array[i]);              // takes value at index in the array, and sets it equal to the callback of the value at that index
  }
  return array;
 };
@@ -84,8 +84,15 @@ map(numbers, function(num){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
+var uniq = function(array, callback) {
+  for (var i = 0; i < array.length; i++) {
+    if(i !== array.indexOf(array[i])) {
+      array.splice(i, 1);
+      i--;
+    }
+  }
+  callback(array);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -98,20 +105,34 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
+var each = function(array, callback) {        // create function each which has parameters of an array and callback 
+  for (var i = 0; i < array.length; i++) {    // loop through the array argument 
+      callback(array[i], i);                  // passes the value itself "array[i]" and the index of that item. i.e. i = 0, i = 1, i = 2 etc.
+  }
+};
+
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + 'position is ' + item)
+  console.log('The item in the ' + indice + ' position is ' + item)
 });
+
+
 
 
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
-
+var getUserById = function(id ,array, callback) {   // defines getUserById function with parameters of (id, array, callback)
+  for (var i = 0; i < array.length; i++) {          // loops through the array passed in as argument
+    if (array[i].id === id) {                       // if the id of the of value at array[i] is equal to the id passed in as the id argument
+      callback(array[i]);                           // then pass the callback function the argument of that particular array[i]
+      break;                                        //in this case getUserById is passed ('16t', users, and function(user). 
+    }
+  }
+}
 
 var users = [
   {
@@ -134,7 +155,7 @@ var users = [
   },
 ];
 getUserById('16t', users, function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address); 
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
 
 
@@ -142,6 +163,21 @@ getUserById('16t', users, function(user){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
+// var find = function(array, callback) {
+//   for (var i = 0; i < array.length; i++) {
+//     if (array[i] % 2 === 0) {
+//       callback(array[i]);
+//     }
+//   }
+// }
+
+var find = function(array, callback) {           //defines find fucntion with parameters of an array and callback function
+  for (var i = 0; i < array.length; i++) {       // loops through the array passed in as array argument
+    if (callback(array[i]) === true) {           // if the callback of array[i] (i.e. array[i] % 2 == 0) is true
+      return array[i];                            // return array[i]
+    }
+  }
+}
 
 
 
@@ -150,3 +186,14 @@ var numbers  = [1, 2, 3, 4, 5, 6];
 find(numbers, function(num){ 
   return num % 2 == 0; //should return 2
 })
+
+
+
+
+
+
+
+
+
+
+
