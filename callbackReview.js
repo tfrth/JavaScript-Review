@@ -1,5 +1,8 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
-
+var first = function(array, callback){
+ var fristName = array[0];
+ callback(firstName);
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -11,7 +14,10 @@ first(names, function(firstName){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+var last = function(array, callback) {
+  var lastName = array[array.length - 1]
+  callback(lastName);
+}
 
 
 
@@ -26,11 +32,21 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
-
+var contains = function(name, array, callback) {
+  var result;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === name) {
+      result = true;
+    } else {
+      result = false;
+    }
+  }
+    callback(result);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-contains('Colt', names, function(yes){
-  if(yes){
+contains('Colt', names, function(result){
+  if(result === true){
     console.log('Colt is in the array');
   } else {
     console.log('Colt is not in the list');
@@ -41,7 +57,19 @@ contains('Colt', names, function(yes){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
+// var map = function(array, callback) {
+//   for (var i = 0; i < array.length; i++) {
+//     array[i] = array[i] * 2;
+//   }
+//   callback(array);
+// }
 
+var map = function(array, callback) {          // creates map function with parameters of array and callback function
+  for (var i = 0; i < array.length; i++) {     // loops through the array passed, in this case "numbers"
+   array[i] = callback(array[i]);              // takes value at index in the array, and set it equal to the callback 
+ }
+ return array;
+};
 
 
 
